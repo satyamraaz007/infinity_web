@@ -5,6 +5,7 @@ import { ApplicationsPreview } from '@/components/home/ApplicationsPreview';
 import { IndustriesSection } from '@/components/home/IndustriesSection';
 import { ProjectsSection } from '@/components/home/ProjectsSection';
 import { ProcessSection } from '@/components/home/ProcessSection';
+import { CertificationsSection } from '@/components/home/CertificationsSection';
 import { ResourcesPreview } from '@/components/home/ResourcesPreview';
 import { ContactCTA } from '@/components/home/ContactCTA';
 
@@ -18,8 +19,9 @@ export function HomePage() {
             <IndustriesSection />
             <ProjectsSection />
             <ProcessSection />
-            <ResourcesPreview />
-            <ContactCTA />
+            <CertificationsSection />
+            {/* <ResourcesPreview /> */}
+            {/* <ContactCTA /> */}
         </>
     );
 }
