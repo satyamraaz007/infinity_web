@@ -1,0 +1,3 @@
+import { Container } from '@/components/common/Container';
+import { SectionHeading } from '@/components/common/SectionHeading';
+export function ApplicationDetails() { return <section className="bg-white py-20"><Container className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><SectionHeading eyebrow="Built for real environments" title="Passive protection for the moments that matter" /><p className="text-lg leading-8 text-muted">From public-facing spaces to complex industrial environments, fire and smoke curtain systems can help divide risk, support evacuation and protect critical routes. Our team can help you explore a suitable approach for your project requirements.</p></Container></section>; }

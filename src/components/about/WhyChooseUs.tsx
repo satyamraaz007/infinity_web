@@ -1,0 +1,5 @@
+import { ShieldCheck, SlidersHorizontal, Wrench } from 'lucide-react';
+import { Container } from '@/components/common/Container';
+import { SectionHeading } from '@/components/common/SectionHeading';
+const items = [{ icon: ShieldCheck, title: 'Tested thinking', text: 'We keep protection decisions grounded in clear project requirements.' }, { icon: SlidersHorizontal, title: 'Considered design', text: 'Solutions are shaped around the building, its openings and its people.' }, { icon: Wrench, title: 'Practical service', text: 'Installation and ongoing support can be planned around your operational needs.' }];
+export function WhyChooseUs() { return <section className="bg-white py-20"><Container><SectionHeading centered eyebrow="Why choose Infinity" title="A partner for the whole protection journey" /><div className="mt-12 grid gap-5 md:grid-cols-3">{items.map(({ icon: Icon, title, text }) => <div key={title} className="border border-slate-200 p-8"><Icon className="text-gold" size={32} strokeWidth={1.5} /><h3 className="mt-6 text-xl font-bold text-navy">{title}</h3><p className="mt-3 leading-7 text-muted">{text}</p></div>)}</div></Container></section>; }

@@ -1,0 +1,3 @@
+import { statistics } from '@/data/statistics';
+import { Container } from '@/components/common/Container';
+export function StatisticsBar() { return <section className="bg-blue text-white"><Container className="grid grid-cols-2 divide-x divide-white/15 py-7 sm:grid-cols-3 lg:grid-cols-6 lg:py-9">{statistics.map(({ value, label, icon: Icon }) => <div key={label} className="flex items-center gap-3 px-3 py-3 sm:px-5"><Icon size={34} strokeWidth={1.6} className="shrink-0 text-white" /><div>{value && <p className="text-2xl font-bold leading-none sm:text-3xl">{value}</p>}<p className="mt-1 whitespace-pre-line text-[11px] leading-[1.35] text-white/75 sm:text-xs">{label}</p></div></div>)}</Container></section>; }

@@ -1,0 +1,2 @@
+import { Container } from '@/components/common/Container';
+export function LocationSection() { return <section className="bg-blue py-16"><Container><p className="text-xs font-bold uppercase tracking-[0.17em] text-gold">Location</p><h2 className="mt-3 text-3xl font-bold text-white">Serving projects across India</h2><p className="mt-4 max-w-2xl leading-7 text-white/70">A verified postal address and map location will be added here when supplied by the company.</p></Container></section>; }

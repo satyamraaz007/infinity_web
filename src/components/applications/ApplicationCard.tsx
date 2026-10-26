@@ -1,0 +1,4 @@
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Application } from '@/types/application';
+export function ApplicationCard({ item }: { item: Application }) { return <article className="group overflow-hidden rounded-lg bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"><img src={item.image} alt="" className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" /><div className="p-6"><h3 className="text-xl font-bold text-navy">{item.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{item.description}</p><Link to="/contact" className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-red transition-colors hover:text-gold">Explore solution <ArrowRight size={14} /></Link></div></article>; }

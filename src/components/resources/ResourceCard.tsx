@@ -1,0 +1,4 @@
+import { ArrowUpRight, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Resource } from '@/types/resource';
+export function ResourceCard({ item }: { item: Resource }) { return <article className="flex min-h-[260px] flex-col border border-slate-200 bg-white p-7 transition-all hover:border-gold hover:shadow-md"><div className="flex items-center justify-between"><FileText className="text-gold" size={31} strokeWidth={1.5} /><span className="text-[10px] font-bold tracking-[0.14em] text-muted">{item.type}</span></div><h3 className="mt-8 text-xl font-bold text-navy">{item.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{item.description}</p><Link to="/contact" className="mt-auto flex items-center gap-2 pt-7 text-xs font-bold uppercase tracking-[0.1em] text-red transition-colors hover:text-gold">{item.available ? 'View document' : 'Request document'} <ArrowUpRight size={14} /></Link></article>; }
