@@ -1,5 +1,6 @@
 import { Phone, Mail, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '@/assets/logos/infinity_logo.png';
 
 export function Footer() {
     return (
@@ -13,7 +14,7 @@ export function Footer() {
                             {/* Infinity Engineerings Logo */}
                             <Link to="/" className="inline-block" aria-label="Infinity Engineerings Home">
                                 <img
-                                    src="/images/infinity_logo_transparent.png"
+                                    src={logo}
                                     alt="Infinity Engineerings"
                                     className="h-14 sm:h-16 w-auto object-contain brightness-105"
                                 />

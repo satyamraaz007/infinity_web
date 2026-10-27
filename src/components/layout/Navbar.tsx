@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { navigation } from '@/data/navigation';
 import { company } from '@/data/company';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
-import logo from '@/assets/logos/infinity-mark.svg';
+// import logo from '@/assets/logos/infinity-mark.svg';
+import logo from '@/assets/logos/infinity_logo.png';
 
 export function Navbar() {
     const [open, setOpen] = useState(false);
