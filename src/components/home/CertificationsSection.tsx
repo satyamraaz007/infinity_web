@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { certificationsData, type CertificationItem } from '@/data/certifications';

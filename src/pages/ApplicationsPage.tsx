@@ -1,6 +1,26 @@
 import { ApplicationsHero } from '@/components/applications/ApplicationsHero';
-import { ApplicationDetails } from '@/components/applications/ApplicationDetails';
-import { ApplicationGrid } from '@/components/applications/ApplicationGrid';
-import { ContactCTA } from '@/components/home/ContactCTA';
-import { Container } from '@/components/common/Container';
-export function ApplicationsPage() { return <><ApplicationsHero /><ApplicationDetails /><section className="bg-paper py-20"><Container><ApplicationGrid /></Container></section><ContactCTA /></>; }
+import { TailoredProtectionSection } from '@/components/applications/TailoredProtectionSection';
+import { SolutionsSection } from '@/components/applications/SolutionsSection';
+import { InfinityAdvantageSection } from '@/components/applications/InfinityAdvantageSection';
+import { SpecifySystemSection } from '@/components/applications/SpecifySystemSection';
+
+export function ApplicationsPage() {
+    return (
+        <div className="bg-white">
+            {/* 1. Hero Section */}
+            <ApplicationsHero />
+
+            {/* 2. Tailored Protection For Every Environment */}
+            <TailoredProtectionSection />
+
+            {/* 3. Solutions Section (8 Cards) */}
+            <SolutionsSection />
+
+            {/* 4. The Infinity Advantage (6 Feature Cards) */}
+            <InfinityAdvantageSection />
+
+            {/* 5. Specify The Right System Today */}
+            <SpecifySystemSection />
+        </div>
+    );
+}

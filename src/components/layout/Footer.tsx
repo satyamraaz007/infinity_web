@@ -126,6 +126,11 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
+                                <Link to="/products" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    Products Catalog
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
                                     Applications
                                 </Link>
@@ -143,35 +148,35 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Service */}
+                    {/* Column 3: Product Divisions */}
                     <div>
                         <h3 className="relative mb-6 inline-block pb-1 text-base sm:text-lg font-bold text-white border-b-2 border-gold tracking-wide">
-                            Service
+                            Product Divisions
                         </h3>
                         <ul className="space-y-3.5 sm:space-y-4">
                             <li>
-                                <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
-                                    Automatic Fire Curtains
+                                <Link to="/products/fire-smoke-protection" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    Fire &amp; Smoke Protection
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
-                                    Automatic Smoke Curtains
+                                <Link to="/products/fire-rated-glass" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    Fire-Rated Glass
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
-                                    Compartmentation:
+                                <Link to="/products/fire-rated-doors" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    Fire-Rated Doors
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
-                                    Escape Routes Protection
+                                <Link to="/products/led-lighting" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    LED Lighting Systems
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/applications" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
-                                    Boundary &amp; Atrium Protection
+                                <Link to="/products/door-hardware-security" className="text-sm sm:text-base text-white/90 hover:text-gold transition-colors font-medium">
+                                    Door Hardware &amp; Security
                                 </Link>
                             </li>
                         </ul>
