@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/common/Container';
+import { MotionReveal, MotionStaggerContainer, MotionStaggerItem } from '@/components/common/MotionReveal';
 
 import compartmentBarriersImg from '@/assets/images/applications/compartment_barriers.jpg';
 import stairwellsEscalatorsImg from '@/assets/images/applications/stairwells_escalators.jpg';
@@ -71,59 +72,67 @@ const solutionsData: SolutionItem[] = [
 
 export function SolutionsSection() {
     return (
-        <section id="solutions" className="bg-[#f8f9fb] py-16 sm:py-24 border-t border-slate-200/80">
+        <section id="solutions" className="bg-[#f8f9fb] py-16 sm:py-24 border-t border-slate-200/80 overflow-hidden">
             <Container>
-                {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold uppercase tracking-tight text-navy">
-                        SOLUTIONS
-                    </h2>
-                    <p className="mt-2 text-base text-slate-600 font-normal">
-                        Purpose-Built For Every Application
-                    </p>
-                </div>
+                {/* Header with Motion Reveal */}
+                <MotionReveal direction="up" duration={0.65}>
+                    <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold uppercase tracking-tight text-navy">
+                            SOLUTIONS
+                        </h2>
+                        <p className="mt-2 text-base text-slate-600 font-normal">
+                            Purpose-Built For Every Application
+                        </p>
+                    </div>
+                </MotionReveal>
 
-                {/* 8 Solutions Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* 8 Solutions Grid with Staggered Cascading Reveal and Premium Hover Physics */}
+                <MotionStaggerContainer
+                    staggerDelay={0.07}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
                     {solutionsData.map(solution => (
-                        <div
-                            key={solution.title}
-                            className="group flex flex-col justify-between overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:border-gold/60 hover:-translate-y-1"
-                        >
-                            {/* Card Image */}
-                            <div className="aspect-[1.46/1] overflow-hidden bg-slate-100">
-                                <img
-                                    src={solution.image}
-                                    alt={solution.title}
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                                    loading="lazy"
-                                />
-                            </div>
-
-                            {/* Card Body */}
-                            <div className="flex flex-1 flex-col justify-between p-6">
-                                <div>
-                                    <h3 className="text-base sm:text-lg font-bold text-navy group-hover:text-blue transition-colors">
-                                        {solution.title}
-                                    </h3>
-                                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600">
-                                        {solution.description}
-                                    </p>
+                        <MotionStaggerItem key={solution.title}>
+                            <div className="group flex h-full flex-col justify-between overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-2xl hover:shadow-navy/10 hover:border-gold/70 hover:-translate-y-1.5">
+                                {/* Card Image Container with Specular Shine and Micro-Zoom */}
+                                <div className="shine-overlay aspect-[1.46/1] overflow-hidden bg-slate-100">
+                                    <img
+                                        src={solution.image}
+                                        alt={solution.title}
+                                        className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106 group-hover:brightness-105"
+                                        loading="lazy"
+                                    />
                                 </div>
 
-                                <div className="mt-6 pt-2">
-                                    <Link
-                                        to={solution.link}
-                                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#e50019] group-hover:text-gold transition-colors"
-                                    >
-                                        <span>READ MORE</span>
-                                        <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
-                                    </Link>
+                                {/* Card Body */}
+                                <div className="flex flex-1 flex-col justify-between p-6">
+                                    <div>
+                                        <h3 className="text-base sm:text-lg font-bold text-navy transition-colors duration-200 group-hover:text-blue">
+                                            {solution.title}
+                                        </h3>
+                                        <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600">
+                                            {solution.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Action link with smooth arrow glide */}
+                                    <div className="mt-6 pt-2">
+                                        <Link
+                                            to={solution.link}
+                                            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#e50019] transition-all duration-300 group-hover:text-gold"
+                                        >
+                                            <span>READ MORE</span>
+                                            <ArrowRight
+                                                size={13}
+                                                className="transition-transform duration-300 ease-out group-hover:translate-x-1.5"
+                                            />
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </MotionStaggerItem>
                     ))}
-                </div>
+                </MotionStaggerContainer>
             </Container>
         </section>
     );

@@ -9,6 +9,7 @@ import { ProductCertifications } from '@/components/products/ProductCertificatio
 import { ProductFAQAccordion } from '@/components/products/ProductFAQAccordion';
 import { ProductEnquiryCTA } from '@/components/products/ProductEnquiryCTA';
 import { RelatedProducts } from '@/components/products/RelatedProducts';
+import { MotionReveal } from '@/components/common/MotionReveal';
 import { ChevronRight, Phone, ShieldCheck, FileText, Share2, Check } from 'lucide-react';
 import { company } from '@/data/company';
 import { useState } from 'react';
@@ -192,47 +193,61 @@ export function ProductDetailPage() {
             <div className="py-14 sm:py-20 space-y-14 sm:space-y-20">
                 <Container className="space-y-14 sm:space-y-20">
                     {/* 1. Feature Section */}
-                    <ProductFeaturesGrid
-                        features={product.features}
-                        productTitle={product.title}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductFeaturesGrid
+                            features={product.features}
+                            productTitle={product.title}
+                        />
+                    </MotionReveal>
 
                     {/* 2. Specification Section */}
-                    <ProductSpecsTable
-                        specifications={product.specifications}
-                        productTitle={product.title}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductSpecsTable
+                            specifications={product.specifications}
+                            productTitle={product.title}
+                        />
+                    </MotionReveal>
 
                     {/* 3. Applications Grid */}
-                    <ProductApplicationsGrid
-                        applications={product.applications}
-                        productTitle={product.title}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductApplicationsGrid
+                            applications={product.applications}
+                            productTitle={product.title}
+                        />
+                    </MotionReveal>
 
                     {/* 4. Certifications & Standards */}
-                    <ProductCertifications
-                        certifications={product.certifications}
-                        productTitle={product.title}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductCertifications
+                            certifications={product.certifications}
+                            productTitle={product.title}
+                        />
+                    </MotionReveal>
 
                     {/* 5. FAQ Section (as specifically requested at the end) */}
-                    <ProductFAQAccordion
-                        faqs={product.faqs}
-                        productTitle={product.title}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductFAQAccordion
+                            faqs={product.faqs}
+                            productTitle={product.title}
+                        />
+                    </MotionReveal>
 
                     {/* 6. RFQ & Direct Contact Box */}
-                    <ProductEnquiryCTA
-                        productTitle={product.title}
-                        categoryTitle={product.categoryTitle}
-                    />
+                    <MotionReveal direction="up">
+                        <ProductEnquiryCTA
+                            productTitle={product.title}
+                            categoryTitle={product.categoryTitle}
+                        />
+                    </MotionReveal>
 
                     {/* 7. Related Products Cross Navigation */}
-                    <RelatedProducts
-                        products={relatedProducts}
-                        categoryTitle={product.categoryTitle}
-                        categorySlug={product.categorySlug}
-                    />
+                    <MotionReveal direction="up">
+                        <RelatedProducts
+                            products={relatedProducts}
+                            categoryTitle={product.categoryTitle}
+                            categorySlug={product.categorySlug}
+                        />
+                    </MotionReveal>
                 </Container>
             </div>
         </div>

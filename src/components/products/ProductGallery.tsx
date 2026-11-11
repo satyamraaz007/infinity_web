@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductGalleryImage } from '@/types/products';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function ProductGallery({
     images,
@@ -28,13 +29,20 @@ export function ProductGallery({
 
     return (
         <div className="space-y-4">
-            {/* Main Stage Image */}
+            {/* Main Stage Image with Smooth Cross-Fade */}
             <div className="group relative aspect-[16/10] sm:aspect-[16/11] overflow-hidden rounded-xl border border-slate-200 bg-slate-900 shadow-md">
-                <img
-                    src={activeImage.url}
-                    alt={activeImage.caption || productTitle}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-102"
-                />
+                <AnimatePresence mode="wait">
+                    <motion.img
+                        key={activeImage.url}
+                        src={activeImage.url}
+                        alt={activeImage.caption || productTitle}
+                        initial={{ opacity: 0.7, scale: 1.02 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0.7 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="h-full w-full object-cover"
+                    />
+                </AnimatePresence>
 
                 {/* Gradient Overlay for Caption readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
@@ -43,7 +51,7 @@ export function ProductGallery({
                 <button
                     type="button"
                     onClick={() => setLightboxOpen(true)}
-                    className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-navy/80 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-gold hover:text-navy hover:scale-110 shadow-lg"
+                    className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-navy/80 text-white backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-gold hover:text-navy hover:scale-110 shadow-lg active:scale-95"
                     aria-label="View high resolution image"
                 >
                     <Maximize2 size={16} />
@@ -55,7 +63,7 @@ export function ProductGallery({
                         <button
                             type="button"
                             onClick={() => setActiveIndex(prev => (prev - 1 + images.length) % images.length)}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-navy/70 text-white backdrop-blur-sm transition-all hover:bg-gold hover:text-navy"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-navy/70 text-white backdrop-blur-sm transition-all duration-200 hover:bg-gold hover:text-navy active:scale-90"
                             aria-label="Previous image"
                         >
                             <ChevronLeft size={20} />
@@ -63,7 +71,7 @@ export function ProductGallery({
                         <button
                             type="button"
                             onClick={() => setActiveIndex(prev => (prev + 1) % images.length)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-navy/70 text-white backdrop-blur-sm transition-all hover:bg-gold hover:text-navy"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-navy/70 text-white backdrop-blur-sm transition-all duration-200 hover:bg-gold hover:text-navy active:scale-90"
                             aria-label="Next image"
                         >
                             <ChevronRight size={20} />
@@ -72,7 +80,7 @@ export function ProductGallery({
                 )}
 
                 {/* Caption Bar */}
-                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
+                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 pointer-events-none">
                     <p className="text-xs sm:text-sm font-medium text-white/95 leading-snug drop-shadow-sm">
                         {activeImage.caption}
                     </p>
@@ -93,17 +101,17 @@ export function ProductGallery({
                                 key={img.url}
                                 type="button"
                                 onClick={() => setActiveIndex(idx)}
-                                className={`group relative aspect-[16/10] overflow-hidden rounded-md border-2 transition-all duration-200 ${
+                                className={`group relative aspect-[16/10] overflow-hidden rounded-md border-2 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                                     isSelected
-                                        ? 'border-gold shadow-md ring-2 ring-gold/40'
-                                        : 'border-slate-200 opacity-70 hover:opacity-100 hover:border-slate-400'
-                                }`}
+                                        ? 'border-gold shadow-md ring-2 ring-gold/40 scale-[1.02]'
+                                        : 'border-slate-200 opacity-65 hover:opacity-100 hover:border-slate-400'
+                                } active:scale-95`}
                                 aria-label={`Select figure ${idx + 1}`}
                             >
                                 <img
                                     src={img.url}
                                     alt=""
-                                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
                                 />
                                 {isSelected && (
                                     <div className="absolute inset-0 bg-gold/10 pointer-events-none" />
@@ -120,7 +128,7 @@ export function ProductGallery({
                     <button
                         type="button"
                         onClick={() => setLightboxOpen(false)}
-                        className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-red hover:text-white"
+                        className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-red hover:text-white active:scale-90"
                         aria-label="Close preview"
                     >
                         <X size={24} />
@@ -130,7 +138,7 @@ export function ProductGallery({
                     <button
                         type="button"
                         onClick={() => setActiveIndex(prev => (prev - 1 + images.length) % images.length)}
-                        className="absolute left-6 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-navy"
+                        className="absolute left-6 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-gold hover:text-navy active:scale-90"
                         aria-label="Previous image"
                     >
                         <ChevronLeft size={28} />
@@ -138,14 +146,20 @@ export function ProductGallery({
                     <button
                         type="button"
                         onClick={() => setActiveIndex(prev => (prev + 1) % images.length)}
-                        className="absolute right-6 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-navy"
+                        className="absolute right-6 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-gold hover:text-navy active:scale-90"
                         aria-label="Next image"
                     >
                         <ChevronRight size={28} />
                     </button>
 
-                    {/* Image in Modal */}
-                    <div className="max-w-5xl max-h-[85vh] flex flex-col items-center">
+                    {/* Image in Modal with fade */}
+                    <motion.div
+                        key={activeImage.url}
+                        initial={{ opacity: 0.8, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                        className="max-w-5xl max-h-[85vh] flex flex-col items-center"
+                    >
                         <img
                             src={activeImage.url}
                             alt={activeImage.caption}
@@ -159,10 +173,9 @@ export function ProductGallery({
                                 {productTitle} • Technical Photo {activeIndex + 1} / {images.length}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             )}
         </div>
     );
 }
-

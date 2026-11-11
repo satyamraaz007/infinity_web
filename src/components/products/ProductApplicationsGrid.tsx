@@ -29,13 +29,13 @@ export function ProductApplicationsGrid({
                 {applications.map(app => (
                     <div
                         key={app.title}
-                        className="group relative overflow-hidden rounded-lg border border-slate-200 bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-xl"
+                        className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-900 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-gold hover:shadow-2xl"
                     >
-                        <div className="aspect-[4/3] overflow-hidden">
+                        <div className="shine-overlay aspect-[4/3] overflow-hidden">
                             <img
                                 src={app.image}
                                 alt={app.title}
-                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                                 loading="lazy"
                             />
                         </div>

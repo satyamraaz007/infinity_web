@@ -13,6 +13,45 @@
     animation: fadeIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Luxury card shine sweep across image on hover */
+.shine-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-overlay::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.15) 50%,
+        transparent 65%
+    );
+    transform: translateX(-100%) rotate(25deg);
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.group:hover .shine-overlay::after {
+    transform: translateX(100%) rotate(25deg);
+}
+
+/* Subtle button shimmer */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+    transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-shimmer:active {
+    transform: scale(0.98);
+}
+
 @keyframes reveal-up {
     from {
         opacity: 0;

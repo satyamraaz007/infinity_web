@@ -171,9 +171,9 @@ export function ProductEnquiryCTA({
 
                             <button
                                 type="submit"
-                                className="w-full inline-flex items-center justify-center gap-2 rounded border border-gold bg-red py-3 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-red/90"
+                                className="w-full btn-shimmer inline-flex items-center justify-center gap-2 rounded border border-gold bg-red py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-red/90 hover:shadow-red/25 active:translate-y-0 active:scale-[0.99]"
                             >
-                                <Send size={14} />
+                                <Send size={14} className="transition-transform group-hover:translate-x-1" />
                                 <span>Request Technical Specification</span>
                             </button>
                             <p className="text-[10px] text-center text-slate-400">
